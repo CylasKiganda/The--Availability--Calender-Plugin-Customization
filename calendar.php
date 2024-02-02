@@ -80,7 +80,7 @@ if ( $current_year == $year ) {
 						} else {
 							$day = ( $grid - $starts ) + 1;
 
-							//---------belo-tweaks-----------
+							//---------belo-----------
 							$belo_date = $year."-".$month."-".$day;
 						    $belo_day_week = date('w', strtotime($belo_date));
 							$day_class = 'belo-day-'.$belo_day_week.' day-'.$day;
