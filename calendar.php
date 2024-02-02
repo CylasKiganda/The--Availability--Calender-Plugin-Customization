@@ -6,8 +6,8 @@ extract( shortcode_atts( array(
 
 global $wp_locale;
 	// Get details of todays date...
-$current_month = get_the_time( 'n' );
-$current_year = get_the_time( 'Y' );
+$current_month = date( 'n' );
+$current_year = date( 'Y' );
 	// Set the classes assigned to the calendar...
 $year_classes = array(
 	'wp-availability',
@@ -34,11 +34,9 @@ if ( $current_year == $year ) {
 	);
 	if ( $current_month == $month ) {
 		$month_classes[] = 'month-current';
-	} else if ( $current_month - 1 == $month ) {
-		$month_classes[] = 'month-previous';
-	} else if ( $current_month + 1 == $month ) {
-		$month_classes[] = 'month-next';
-	}
+	} else {
+		$month_classes[] = 'belo-remove-this-month';
+	} 
 	?>
     <div class="<?php esc_attr_e( implode( ' ', $month_classes ) ); ?>">
         <table>
@@ -53,7 +51,8 @@ if ( $current_year == $year ) {
             <tbody>
                 <tr>
                     <?php
-					$week_begins = intval( get_option( 'start_of_week' ) );
+					//belo-tweaked-this
+					$week_begins = 0;
 					$myweek = array();
 					for ( $wdcount=0; $wdcount<7; $wdcount++ ) {
 						$myweek[] = $wp_locale->get_weekday( ( $wdcount + $week_begins ) % 7 );
@@ -73,12 +72,19 @@ if ( $current_year == $year ) {
 					 // Create month grid...
 					for ( $grid = 0; $grid <= 41; $grid++ ) :
 						$available = $day_class = null;
+						
+
 						if ( $grid < $starts || $grid > ( $last_day + $starts - 1 ) ) {
 							$day = null;
 							$day_class = 'wp-availability-disabled';
 						} else {
 							$day = ( $grid - $starts ) + 1;
-							$day_class = 'day-'.$day;
+
+							//---------belo-tweaks-----------
+							$belo_date = $year."-".$month."-".$day;
+						    $belo_day_week = date('w', strtotime($belo_date));
+							$day_class = 'belo-day-'.$belo_day_week.' day-'.$day;
+
 							if ( isset( $booked[$month] ) && array_key_exists( $day, $booked[$month] ) ) {
 								$available = false;
 								$day_class .= ' wp-availability-booked';
@@ -87,7 +93,6 @@ if ( $current_year == $year ) {
 				?>
                     <td<?php _e( $day_class !== null ? ' class="'.$day_class.'"' : '' ); ?>>
                         <?php _e( $day ? $day : '&nbsp;'); ?></td>
-
                         <?php if ( ( ( $grid + 1 ) % 7 == 0 ) && $grid < 42 ) : ?>
                 </tr>
                 <tr>
