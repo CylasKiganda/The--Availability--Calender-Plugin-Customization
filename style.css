@@ -1,0 +1,44 @@
+.wp-availability {
+	overflow: hidden;
+	clear: both;
+}
+.wp-availability-month {
+	border: 1px solid #f5f5f5;
+	padding: 2px;
+	float: left;
+	margin: 0 3px 3px 0;
+}
+.wp-availability-month table {
+	color: #333333;
+	width: 164px;
+	border-collapse: collapse;
+	font: 11px arial, verdana, sans-serif;
+	text-align: center;
+	table-layout: fixed;
+}
+.wp-availability-month table thead th {
+	padding: 3px;
+	font-size: 12px;
+	background-color: #333;
+	color: white;
+	text-align: center;
+}
+.wp-availability-month table tbody th,
+.wp-availability-month table tbody td {
+	padding: 3px;
+	color: #333;
+	text-align: center;
+}
+.wp-availability-month table tbody td {
+	border: 1px solid white;
+	background: #f5f5f5;
+}
+.wp-availability-month table tbody td.wp-availability-booked {
+	font-weight: bold;
+	background-color: #CC0000;
+	text-decoration: line-through;
+	color: white;
+}
+.wp-availability-month table tbody td.wp-availability-disabled {
+	background-color: #e4e4e4;
+}
