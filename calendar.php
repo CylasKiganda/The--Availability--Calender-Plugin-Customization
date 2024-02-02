@@ -87,6 +87,7 @@ if ( $current_year == $year ) {
 				?>
                     <td<?php _e( $day_class !== null ? ' class="'.$day_class.'"' : '' ); ?>>
                         <?php _e( $day ? $day : '&nbsp;'); ?></td>
+
                         <?php if ( ( ( $grid + 1 ) % 7 == 0 ) && $grid < 42 ) : ?>
                 </tr>
                 <tr>
