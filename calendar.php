@@ -43,8 +43,9 @@ if ( $current_year == $year ) {
             <thead>
                 <tr>
                     <th colspan="7">
-                        <?php esc_html_e( $month_name ); ?>
-                        <?php esc_html_e( $year ); ?>
+                        <?php 
+						echo $year."年".$month_name;
+						?>
                     </th>
                 </tr>
             </thead>

@@ -1,6 +1,7 @@
 .wp-availability {
 	overflow: hidden;
 	clear: both;
+	margin-bottom: 20px;
 }
 .wp-availability-month {
 	/* border: 1px solid #050404; */
