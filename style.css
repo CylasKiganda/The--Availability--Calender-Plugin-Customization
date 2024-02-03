@@ -43,7 +43,7 @@
 	border: 1px solid black;
    }
 .wp-availability-month table tbody td.wp-availability-disabled {
-	background-color: #e4e4e4;
+	background-color: white;
 }
 .belo-remove-this-month{
 	display: none !important;

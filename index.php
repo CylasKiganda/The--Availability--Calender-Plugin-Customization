@@ -1,4 +1,4 @@
-	<?php
+<?php
 	/*
 	Plugin Name: Availability Calendar
 	Plugin URI: http://wordpress.org/extend/plugins/availability/
@@ -101,7 +101,7 @@
 						$this->tag,
 						WP_PLUGIN_URL . '/' . $this->tag . '/style.css',
 						false,
-						"1.11112",
+						"1.1111112",
 						'screen'
 					);
 	
